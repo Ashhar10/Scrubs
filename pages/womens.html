@@ -19,8 +19,24 @@
 
         .page-title {
             font-size: 3.5rem;
-            color: var(--primary-color);
+            color: var(--primary-navy);
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 90px 1.5rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
     <link rel="shortcut icon" href="/favicon.png">
@@ -28,15 +44,31 @@
 </head>
 
 <body>
-        <nav class="navbar" id="navbar" style="background: rgba(10, 10, 10, 0.9);">
+    <nav class="navbar" id="navbar" style="background: rgba(10, 10, 10, 0.9);">
         <div class="logo"><a href="../index.html" style="color:white; text-decoration:none;">Luxe Scrubs</a></div>
         <div class="nav-links">
-            <a href="womens.html" style="color: var(--primary-color);">Women</a>
+            <a href="womens.html" style="color: white;">Women</a>
             <a href="mens.html" style="color: white;">Men</a>
             <a href="../index.html#hero-spacer" style="color: white;">Our Story</a>
             <a href="../index.html#features" style="color: white;">Sustainability</a>
         </div>
-        <button class="cart-btn" aria-label="Cart" style="color: white;"><i class="fas fa-shopping-bag"></i></button>
+        <div style="display:flex;align-items:center;gap:1rem;">
+            <button class="cart-btn" aria-label="Cart" style="color: white;"><i
+                    class="fas fa-shopping-bag"></i></button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span style="background:white;"></span><span style="background:white;"></span><span
+                    style="background:white;"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <a href="womens.html">Women</a>
+        <a href="mens.html">Men</a>
+        <a href="../index.html#hero-spacer">Our Story</a>
+        <a href="../index.html#features">Sustainability</a>
+        <a href="best-sellers.html">Best Sellers</a>
     </nav>
 
     <div class="page-header">
@@ -115,38 +147,38 @@
             <p>Designed by Frenziers</p>
         </div>
     </footer>
-    
-        <!-- Shopping Cart Sidebar -->
-        <div class="cart-overlay" id="cart-overlay"></div>
-        <div class="cart-sidebar" id="cart-sidebar">
-            <div class="cart-header">
-                <h3>Your Cart</h3>
-                <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cart-items">
-                <!-- Cart items will be dynamically injected here, adding a placeholder for now -->
-                <div class="cart-item">
-                    <img src="../public/scroll/001.png" alt="Ceil Blue Set">
-                    <div class="cart-item-info">
-                        <h4>Ceil Blue Essential Set</h4>
-                        <p>$85.00</p>
-                        <div class="qty-control">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
-                        </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically injected here, adding a placeholder for now -->
+            <div class="cart-item">
+                <img src="../public/scroll/001.png" alt="Ceil Blue Set">
+                <div class="cart-item-info">
+                    <h4>Ceil Blue Essential Set</h4>
+                    <p>$85.00</p>
+                    <div class="qty-control">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
                     </div>
-                    <button class="remove-item"><i class="fas fa-trash"></i></button>
                 </div>
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total</span>
-                    <span>$85.00</span>
-                </div>
-                <button class="checkout-btn">Proceed to Checkout</button>
+                <button class="remove-item"><i class="fas fa-trash"></i></button>
             </div>
         </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span>$85.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
     <script src="../script.js"></script>
 </body>
 

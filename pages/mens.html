@@ -19,8 +19,24 @@
 
         .page-title {
             font-size: 3.5rem;
-            color: var(--primary-color);
+            color: var(--primary-navy);
             margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 90px 1.5rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
     <link rel="shortcut icon" href="/favicon.png">
@@ -32,11 +48,27 @@
         <div class="logo"><a href="../index.html" style="color:white; text-decoration:none;">Luxe Scrubs</a></div>
         <div class="nav-links">
             <a href="womens.html" style="color: white;">Women</a>
-            <a href="mens.html" style="color: var(--primary-color);">Men</a>
+            <a href="mens.html" style="color: white;">Men</a>
             <a href="../index.html#hero-spacer" style="color: white;">Our Story</a>
             <a href="../index.html#features" style="color: white;">Sustainability</a>
         </div>
-        <button class="cart-btn" aria-label="Cart" style="color: white;"><i class="fas fa-shopping-bag"></i></button>
+        <div style="display:flex;align-items:center;gap:1rem;">
+            <button class="cart-btn" aria-label="Cart" style="color: white;"><i
+                    class="fas fa-shopping-bag"></i></button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span style="background:white;"></span><span style="background:white;"></span><span
+                    style="background:white;"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <a href="womens.html">Women</a>
+        <a href="mens.html">Men</a>
+        <a href="../index.html#hero-spacer">Our Story</a>
+        <a href="../index.html#features">Sustainability</a>
+        <a href="best-sellers.html">Best Sellers</a>
     </nav>
 
     <div class="page-header">
