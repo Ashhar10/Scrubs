@@ -184,31 +184,105 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple scroll logic for Carousels (Reviews & Products)
+    // Robust scroll logic for Carousels (Reviews & Products)
     const setupCarousel = (carouselSelector, trackSelector) => {
         const carousel = document.querySelector(carouselSelector);
         if (!carousel) return;
         const track = carousel.querySelector(trackSelector);
+        if (!track) return;
+
         const prevBtn = carousel.querySelector('.prev');
         const nextBtn = carousel.querySelector('.next');
+        const dotsContainer = carousel.querySelector('.carousel-dots');
+        let dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.dot')) : [];
 
-        if (track && prevBtn && nextBtn) {
-            // Scroll amount is roughly one card width + gap
-            const scrollAmount = 350;
+        // --- Dragging Logic ---
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-            nextBtn.addEventListener('click', () => {
-                console.log(`[Carousel] Next clicked on ${carouselSelector}`);
-                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                console.log(`[Carousel] Scrolled by ${scrollAmount}. New scrollLeft: ${track.scrollLeft}`);
-            });
+        const startDrag = (e) => {
+            isDown = true;
+            track.style.cursor = 'grabbing';
+            track.style.scrollBehavior = 'auto'; // Disable smooth scroll while dragging
+            track.style.scrollSnapType = 'none'; // Disable snapping while dragging
+            startX = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        };
 
+        const stopDrag = () => {
+            isDown = false;
+            track.style.cursor = 'grab';
+            track.style.scrollBehavior = 'smooth';
+            track.style.scrollSnapType = ''; // Restore snapping
+            updateDots();
+        };
+
+        const moveDrag = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+            const walk = (x - startX) * 1.5; // Scroll speed multiplier
+            track.scrollLeft = scrollLeft - walk;
+        };
+
+        track.addEventListener('mousedown', startDrag);
+        track.addEventListener('touchstart', startDrag, { passive: true });
+
+        track.addEventListener('mouseleave', stopDrag);
+        track.addEventListener('mouseup', stopDrag);
+        track.addEventListener('touchend', stopDrag);
+
+        track.addEventListener('mousemove', moveDrag);
+        track.addEventListener('touchmove', moveDrag, { passive: false });
+        // Set initial cursor
+        track.style.cursor = 'grab';
+
+        // --- Button Logic ---
+        const getScrollAmount = () => {
+            const firstCard = track.children[0];
+            const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+            return firstCard ? firstCard.offsetWidth + gap : 350;
+        };
+
+        if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                console.log(`[Carousel] Prev clicked on ${carouselSelector}`);
-                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
             });
-        } else {
-            console.error(`[Carousel] Failed to find elements for ${carouselSelector}`);
         }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+        }
+
+        // --- Synchronization Logic ---
+        let scrollTimeout;
+        track.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateDots, 100);
+        });
+
+        const updateDots = () => {
+            if (dots.length === 0) return;
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (maxScroll <= 0) return;
+
+            const scrollPercentage = track.scrollLeft / maxScroll;
+            let activeIndex = Math.round(scrollPercentage * (dots.length - 1));
+
+            // Bounds safety
+            activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        };
+
+        // Initialize dots if any
+        setTimeout(updateDots, 50);
     };
 
     setupCarousel('.reviews-carousel', '.reviews-track');
