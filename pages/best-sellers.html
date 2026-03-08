@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers | Luxe Scrubs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            padding: 120px 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 1) 0%, var(--bg-color) 100%);
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar" style="background: rgba(10, 10, 10, 0.9);">
+        <div class="logo"><a href="../index.html" style="color:white; text-decoration:none;">Luxe Scrubs</a></div>
+        <div class="nav-links">
+            <a href="womens.html" style="color: white;">Women</a>
+            <a href="mens.html" style="color: white;">Men</a>
+            <a href="../index.html#hero-spacer" style="color: white;">Our Story</a>
+            <a href="../index.html#features" style="color: white;">Sustainability</a>
+        </div>
+        <button class="cart-btn" aria-label="Cart" style="color: white;"><i class="fas fa-shopping-bag"></i></button>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="page-title reveal-up">Best Sellers</h1>
+        <p class="reveal-up delay-1">The scrubs healthcare professionals love most.</p>
+    </div>
+
+    <section class="products-section" style="padding-top: 2rem; min-height: 50vh;">
+        <div class="products-track"
+            style="display: flex; gap: 2rem; padding: 0 5%; flex-wrap: wrap; justify-content: center;">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../public/scroll/001.png" alt="Ceil Blue Scrub Set">
+                </div>
+                <div class="product-info">
+                    <h4>Ceil Blue Essential Set</h4>
+                    <a href="product-ceil-blue.html">
+                        <button class="view-details">VIEW DETAILS</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../public/scroll/040.png" alt="Navy Blue Multi-Pocket Joggers">
+                </div>
+                <div class="product-info">
+                    <h4>Navy Blue 8-Pocket Joggers</h4>
+                    <a href="product-navy-joggers.html">
+                        <button class="view-details">VIEW DETAILS</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../public/scroll/079.png" alt="Black Performance Lab Coat">
+                </div>
+                <div class="product-info">
+                    <h4>Black Performance Lab Coat</h4>
+                    <a href="product-black-coat.html">
+                        <button class="view-details">VIEW DETAILS</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer from index.html -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2 class="logo">Luxe Scrubs</h2>
+                <ul>
+                    <li><i class="fas fa-leaf"></i> Sustainable Fabrics</li>
+                    <li><i class="fas fa-truck"></i> Free Shipping</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <a href="womens.html">Women's Scrubs</a>
+                <a href="mens.html">Men's Scrubs</a>
+                <a href="womens.html">Scrub Jackets</a>
+                <a href="mens.html">Accessories</a>
+                <a href="best-sellers.html">Clearance</a>
+            </div>
+            <div class="footer-column">
+                <h4>About</h4>
+                <a href="../index.html#hero-spacer">Our Story</a>
+                <a href="../index.html#features">Sustainability</a>
+                <a href="#">Group Orders</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">My Account</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-column contact-form">
+                <h4>Connect</h4>
+                <div class="socials">
+                    <a href="https://facebook.com/luxescrubs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/luxescrubs" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/luxescrubs" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/luxescrubs" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message" rows="2"></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Luxe Scrubs - Premium Doctors Scrubs. All rights reserved.</p>
+            <p>Designed by Frenziers</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically injected here, adding a placeholder for now -->
+            <div class="cart-item">
+                <img src="../public/scroll/001.png" alt="Ceil Blue Set">
+                <div class="cart-item-info">
+                    <h4>Ceil Blue Essential Set</h4>
+                    <p>$85.00</p>
+                    <div class="qty-control">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <button class="remove-item"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span>$85.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

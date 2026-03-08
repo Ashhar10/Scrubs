@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Scrubs | Premium Doctors Scrubs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+    <canvas id="sequence-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="logo">Luxe Scrubs</div>
+        <div class="nav-links">
+            <a href="pages/womens.html">Women</a>
+            <a href="pages/mens.html">Men</a>
+            <a href="#hero-spacer">Our Story</a>
+            <a href="#features">Sustainability</a>
+        </div>
+        <button class="cart-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i></button>
+    </nav>
+
+    <section class="hero-spacer" id="hero-spacer">
+        <div class="hero-content">
+            <h1 class="reveal-up">ELEVATE YOUR<br>SHIFT WITH<br><span>LUXESCRUBS</span></h1>
+            <p class="reveal-up delay-1">Superior Comfort. Performance Fabric.<br>Designed for Healthcare Professionals.
+            </p>
+            <a href="pages/best-sellers.html" style="text-decoration: none;">
+                <button class="primary-btn reveal-up delay-2">SHOP BEST SELLERS</button>
+            </a>
+        </div>
+        <div class="scroll-indicator reveal-up delay-3">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <main class="content-wrapper">
+        <section class="features-section" id="features">
+            <h2 class="section-title reveal-up">WHY LUXE SCRUBS</h2>
+            <div class="features-grid">
+                <div class="feature-card reveal-up delay-1">
+                    <div class="icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                    <h3>4-Way Stretch</h3>
+                    <p>Every Scrub is made with advanced stretch fabric for absolute comfort and performability.</p>
+                </div>
+                <div class="feature-card reveal-up delay-2">
+                    <div class="icon"><i class="fas fa-wind"></i></div>
+                    <h3>Moisture Wicking</h3>
+                    <p>Moisture wicking fabric ensures you stay dry in all stressful details.</p>
+                </div>
+                <div class="feature-card reveal-up delay-3">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3>Antimicrobial</h3>
+                    <p>Antimicrobial fibers provide protection against fluids and bacteria.</p>
+                </div>
+                <div class="feature-card reveal-up delay-4">
+                    <div class="icon"><i class="fas fa-hands-holding-circle"></i></div>
+                    <h3>Premium Comfort</h3>
+                    <p>Premium comfort with cloud-like feel and durability for long shifts.</p>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat reveal-up delay-1">
+                    <h4>15,432+</h4>
+                    <p>HAPPY CUSTOMERS</p>
+                </div>
+                <div class="stat reveal-up delay-2">
+                    <h4>4.9/5</h4>
+                    <p>RATING</p>
+                </div>
+                <div class="stat reveal-up delay-3">
+                    <h4>120+</h4>
+                    <p>SHIFTS TESTED</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <h2 class="section-title reveal-up">HEAR FROM THE FRONT LINES</h2>
+            <div class="reviews-carousel reveal-up delay-1">
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="reviews-track">
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <img src="https://ui-avatars.com/api/?name=Dr+Sarah+L&background=e0e7ff&color=1e3a8a"
+                                alt="Dr Sarah L.">
+                            <div>
+                                <h5>Dr. Sarah L.</h5>
+                                <span>Surgeon</span>
+                            </div>
+                        </div>
+                        <p>"Luxe Scrubs are a game changer! Absolute comfort and durability."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <div class="review-card active-review">
+                        <div class="reviewer">
+                            <img src="https://ui-avatars.com/api/?name=Mark+R&background=ffedd5&color=9a3412"
+                                alt="Mark R.">
+                            <div>
+                                <h5>Mark R.</h5>
+                                <span>RN</span>
+                            </div>
+                        </div>
+                        <p>"Luxe Scrubs afford a premium level of comfort absolute to any standard."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <img src="https://ui-avatars.com/api/?name=Emily+T&background=dcfce7&color=166534"
+                                alt="Emily T.">
+                            <div>
+                                <h5>Emily T.</h5>
+                                <span>MD</span>
+                            </div>
+                        </div>
+                        <p>"Luxe Scrubs provide a uniquely cool, comfortable feel throughout shifts."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <!-- Duplicates for scrolling demo -->
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <img src="https://ui-avatars.com/api/?name=Jessica+M&background=fee2e2&color=991b1b"
+                                alt="Jessica M.">
+                            <div>
+                                <h5>Jessica M.</h5>
+                                <span>Pediatrician</span>
+                            </div>
+                        </div>
+                        <p>"My favorite scrubs ever, the pockets hold absolutely everything I need."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <img src="https://ui-avatars.com/api/?name=David+W&background=e0e7ff&color=1e3a8a"
+                                alt="David W.">
+                            <div>
+                                <h5>David W.</h5>
+                                <span>ER Doc</span>
+                            </div>
+                        </div>
+                        <p>"14 hour shifts feel like nothing when you aren't fighting your scrubs all day."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-dots reveal-up delay-2">
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <section class="products-section" id="shop">
+            <h2 class="section-title reveal-up">TRENDING NOW</h2>
+            <div class="products-carousel reveal-up delay-1">
+                <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="products-track">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/scroll/001.png" alt="Ceil Blue Scrub Set">
+                        </div>
+                        <div class="product-info">
+                            <h4>Ceil Blue Essential Set</h4>
+                            <a href="pages/product-ceil-blue.html">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card active-product">
+                        <div class="product-image">
+                            <img src="public/scroll/040.png" alt="Navy Blue Multi-Pocket Joggers">
+                        </div>
+                        <div class="product-info">
+                            <h4>Navy Blue 8-Pocket Joggers</h4>
+                            <a href="pages/product-navy-joggers.html">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/scroll/079.png" alt="Black Performance Lab Coat">
+                        </div>
+                        <div class="product-info">
+                            <h4>Black Performance Lab Coat</h4>
+                            <a href="pages/product-black-coat.html">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Duplicates for scrolling demo -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/scroll/005.png" alt="Burgundy Scrub Set">
+                        </div>
+                        <div class="product-info">
+                            <h4>Burgundy Essential Set</h4>
+                            <a href="#shop">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/scroll/020.png" alt="Hunter Green Joggers">
+                        </div>
+                        <div class="product-info">
+                            <h4>Hunter Green 8-Pocket Joggers</h4>
+                            <a href="#shop">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="public/scroll/050.png" alt="White Lab Coat Pro">
+                        </div>
+                        <div class="product-info">
+                            <h4>White Performance Lab Coat</h4>
+                            <a href="#shop">
+                                <button class="view-details">VIEW DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="liquid-bg"></div>
+            <div class="newsletter-content reveal-up">
+                <h2>GET YOUR PERFECT FIT</h2>
+                <p>Liquid animation fueled email promotional on your email.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="logo">Luxe Scrubs</h2>
+                    <ul>
+                        <li><i class="fas fa-leaf"></i> Sustainable Fabrics</li>
+                        <li><i class="fas fa-truck"></i> Free Shipping</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="pages/womens.html">Women's Scrubs</a>
+                    <a href="pages/mens.html">Men's Scrubs</a>
+                    <a href="pages/womens.html">Scrub Jackets</a>
+                    <a href="pages/mens.html">Accessories</a>
+                    <a href="pages/best-sellers.html">Clearance</a>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <a href="#hero-spacer">Our Story</a>
+                    <a href="#features">Sustainability</a>
+                    <a href="#navbar">Group Orders</a>
+                    <a href="#navbar">Careers</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="#navbar">My Account</a>
+                    <a href="#navbar">Contact Us</a>
+                    <a href="#navbar">Shipping & Returns</a>
+                    <a href="#navbar">FAQ</a>
+                </div>
+                <div class="footer-column contact-form">
+                    <h4>Connect</h4>
+                    <div class="socials">
+                        <a href="https://facebook.com/luxescrubs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/luxescrubs" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/luxescrubs" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com/luxescrubs" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <form>
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <textarea placeholder="Message" rows="2"></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Luxe Scrubs - Premium Doctors Scrubs. All rights reserved.</p>
+                <p>Designed by Frenziers</p>
+        </footer>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically injected here, adding a placeholder for now -->
+            <div class="cart-item">
+                <img src="public/scroll/001.png" alt="Ceil Blue Set">
+                <div class="cart-item-info">
+                    <h4>Ceil Blue Essential Set</h4>
+                    <p>$85.00</p>
+                    <div class="qty-control">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <button class="remove-item"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span>$85.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

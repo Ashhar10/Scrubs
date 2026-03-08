@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navy Blue 8-Pocket Joggers | Luxe Scrubs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .product-page {
+            display: flex;
+            gap: 4rem;
+            padding: 120px 5% 4rem;
+            min-height: 80vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .main-image {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .main-image img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: contain;
+        }
+
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-details h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .add-to-cart {
+            background: var(--primary-navy);
+            color: white;
+            padding: 1.2rem 2rem;
+            font-weight: 600;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .add-to-cart:hover {
+            background: var(--brand-blue);
+            transform: translateY(-2px);
+        }
+
+        .features-list {
+            margin-top: 2rem;
+            list-style: none;
+            color: var(--text-muted);
+            padding: 0;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .features-list i {
+            color: var(--primary-navy);
+            margin-right: 10px;
+        }
+
+        /* Additional Product Page Variables */
+        :root {
+            --ambient-glow: rgba(255, 255, 255, 0.05);
+        }
+
+        .main-image {
+            transition: box-shadow 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 0 50px var(--ambient-glow);
+        }
+
+        .main-image img {
+            transition: opacity 0.3s ease;
+        }
+
+        .color-selection {
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .color-selection p {
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+        }
+
+        .selected-color-name {
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .color-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            outline: none;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.active {
+            border-color: #fff;
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .color-swatch.active::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar" style="background: rgba(10, 10, 10, 0.9);">
+        <div class="logo"><a href="../index.html" style="color:white; text-decoration:none;">Luxe Scrubs</a></div>
+        <div class="nav-links">
+            <a href="womens.html" style="color: white;">Women</a>
+            <a href="mens.html" style="color: white;">Men</a>
+            <a href="../index.html#hero-spacer" style="color: white;">Our Story</a>
+            <a href="../index.html#features" style="color: white;">Sustainability</a>
+        </div>
+        <button class="cart-btn" aria-label="Cart" style="color: white;"><i class="fas fa-shopping-bag"></i></button>
+    </nav>
+
+    <div class="product-page">
+        <div class="main-image reveal-up">
+            <img src="../public/scroll/040.png" alt="Navy Blue Multi-Pocket Joggers">
+        </div>
+        <div class="product-details reveal-up delay-1">
+            <h1>Navy Blue 8-Pocket Joggers</h1>
+            <div class="price">$55.00</div>
+            <p class="description">Elevate your utility with the Navy Blue 8-Pocket Joggers. Engineered for extreme
+                mobility and storage, these joggers seamlessly blend athletic styling with professional requirements.
+            </p>
+
+
+            <div class="color-selection">
+                <p>Color: <span class="selected-color-name">...</span></p>
+                <div class="color-swatches">
+                    <button class="color-swatch" style="background-color: #0ea5e9;" data-color="Ceil Blue"
+                        data-image="../public/scroll/001.png" data-glow="rgba(14, 165, 233, 0.5)"></button>
+                    <button class="color-swatch" style="background-color: #1e3a8a;" data-color="Navy Blue"
+                        data-image="../public/scroll/040.png" data-glow="rgba(30, 58, 138, 0.5)"></button>
+                    <button class="color-swatch" style="background-color: #0f172a;" data-color="Black"
+                        data-image="../public/scroll/079.png" data-glow="rgba(255, 255, 255, 0.15)"></button>
+                    <button class="color-swatch" style="background-color: #991b1b;" data-color="Burgundy"
+                        data-image="../public/scroll/005.png" data-glow="rgba(153, 27, 27, 0.5)"></button>
+                    <button class="color-swatch" style="background-color: #166534;" data-color="Hunter Green"
+                        data-image="../public/scroll/020.png" data-glow="rgba(22, 101, 52, 0.5)"></button>
+                </div>
+            </div>
+
+            <button class="add-to-cart">ADD TO CART</button>
+
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> 8 Purpose-Built Pockets</li>
+                <li><i class="fas fa-check"></i> Sport-inspired Ribbed Ankle Cuffs</li>
+                <li><i class="fas fa-check"></i> Ultra-soft Performance Blend</li>
+                <li><i class="fas fa-check"></i> Liquid-Repellent Finish</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2 class="logo">Luxe Scrubs</h2>
+                <ul>
+                    <li><i class="fas fa-leaf"></i> Sustainable Fabrics</li>
+                    <li><i class="fas fa-truck"></i> Free Shipping</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <a href="womens.html">Women's Scrubs</a>
+                <a href="mens.html">Men's Scrubs</a>
+                <a href="womens.html">Scrub Jackets</a>
+                <a href="mens.html">Accessories</a>
+                <a href="best-sellers.html">Clearance</a>
+            </div>
+            <div class="footer-column">
+                <h4>About</h4>
+                <a href="../index.html#hero-spacer">Our Story</a>
+                <a href="../index.html#features">Sustainability</a>
+                <a href="#">Group Orders</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">My Account</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-column contact-form">
+                <h4>Connect</h4>
+                <div class="socials">
+                    <a href="https://facebook.com/luxescrubs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/luxescrubs" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/luxescrubs" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/luxescrubs" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message" rows="2"></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Luxe Scrubs - Premium Doctors Scrubs. All rights reserved.</p>
+            <p>Designed by Frenziers</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+
+
+
+    <!-- Product Color Customization Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swatches = document.querySelectorAll('.color-swatch');
+            const mainImg = document.querySelector('.main-image img');
+            const colorNameDisplay = document.querySelector('.selected-color-name');
+            const rootStyle = document.documentElement.style;
+
+            // Find current image based on HTML
+            const currentSrc = mainImg.getAttribute('src');
+            let activeSwatch = Array.from(swatches).find(s => s.getAttribute('data-image') === currentSrc);
+
+            // Default fallback
+            if (!activeSwatch && swatches.length > 0) activeSwatch = swatches[0];
+
+            const activateColor = (swatch) => {
+                // Update active state class
+                swatches.forEach(s => s.classList.remove('active'));
+                swatch.classList.add('active');
+
+                // Update Text
+                colorNameDisplay.textContent = swatch.getAttribute('data-color');
+
+                // Animate Image change
+                mainImg.style.opacity = '0';
+                setTimeout(() => {
+                    mainImg.setAttribute('src', swatch.getAttribute('data-image'));
+                    mainImg.style.opacity = '1';
+                }, 150);
+
+                // Set the ambient glow CSS variable
+                rootStyle.setProperty('--ambient-glow', swatch.getAttribute('data-glow'));
+            };
+
+            // Set Initial
+            if (activeSwatch) activateColor(activeSwatch);
+
+            // Bind Clicks
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', () => {
+                    activateColor(swatch);
+                });
+            });
+
+            // Re-bind Add to Cart since we wiped the old block via Regex
+            const addToCartBtn = document.querySelector('.add-to-cart');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function () {
+                    const originalText = this.innerText;
+                    this.innerText = 'ADDED TO CART';
+                    this.style.backgroundColor = 'var(--secondary-color)';
+                    this.style.color = 'white';
+
+                    // Simulate cart interaction
+                    const cartBtn = document.querySelector('.cart-btn');
+                    if (cartBtn) cartBtn.click(); // Opens the drawer automatically when added
+
+                    setTimeout(() => {
+                        this.innerText = originalText;
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="../public/scroll/001.png" alt="Ceil Blue Set">
+                <div class="cart-item-info">
+                    <h4>Ceil Blue Essential Set</h4>
+                    <p>$85.00</p>
+                    <div class="qty-control">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+                <button class="remove-item"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span>$85.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+</body>
+
+</html>
