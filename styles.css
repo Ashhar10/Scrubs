@@ -81,11 +81,17 @@ canvas#sequence-canvas {
     margin: 0 auto;
     padding: 1rem 2rem;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: rgba(42, 42, 42, 0.45);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    /* Glossy Edge Highlight */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+    /* Deep shadow + Inner glass reflection */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transform: translateY(0);
     opacity: 1;
 }
@@ -109,7 +115,7 @@ canvas#sequence-canvas {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--primary-navy);
+    color: white; /* Light text for dark glossy navbar */
     font-weight: 500;
     font-size: 0.95rem;
     margin: 0 1.5rem;
@@ -124,7 +130,7 @@ canvas#sequence-canvas {
     background: transparent;
     border: none;
     font-size: 1.2rem;
-    color: var(--primary-navy);
+    color: white; /* Light text for dark glossy navbar */
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -289,21 +295,28 @@ canvas#sequence-canvas {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(42, 42, 42, 0.3);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-radius: 24px;
     padding: 2.5rem 1.5rem;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
-    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(60, 60, 60, 0.45);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .feature-card .icon {
@@ -351,14 +364,17 @@ canvas#sequence-canvas {
 
 .reviews-section {
     padding: 6rem 5%;
-    background: rgba(219, 234, 254, 0.15);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(158, 27, 34, 0.05); /* Very subtle brand red tint */
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
     border-radius: 50px;
     margin: 0 2%;
     margin-bottom: 6rem;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .reviews-carousel {
@@ -416,14 +432,14 @@ canvas#sequence-canvas {
 }
 
 .review-card {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(42, 42, 42, 0.2);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 2rem;
     border-radius: 20px;
     min-width: 320px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     opacity: 0.6;
     transform: scale(0.9);
     transition: all 0.4s ease;
@@ -433,8 +449,12 @@ canvas#sequence-canvas {
 .review-card.active-review {
     opacity: 1;
     transform: scale(1);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
-    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(60, 60, 60, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .reviewer {
@@ -518,24 +538,31 @@ canvas#sequence-canvas {
 }
 
 .product-card {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(42, 42, 42, 0.25);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     border-radius: 30px;
     padding: 2rem;
     min-width: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     scroll-snap-align: center;
 }
 
 .product-card:hover,
 .product-card.active-product {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(60, 60, 60, 0.4);
     transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .product-image img {
@@ -635,20 +662,25 @@ canvas#sequence-canvas {
     display: flex;
     max-width: 500px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(42, 42, 42, 0.4);
     border-radius: 50px;
     padding: 0.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     transition: all 0.4s ease;
 }
 
 .newsletter-form:focus-within {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(13, 148, 136, 0.4);
-    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.2);
+    background: rgba(60, 60, 60, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 25px 50px rgba(158, 27, 34, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .newsletter-form input {
