@@ -26,71 +26,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
 
-        // --- Optimized Sequence Loading (Batching) ---
-        // Instead of firing 127 requests at once, load in small batches 
-        // to prevent browser bandwidth bottlenecking and UI freezing.
-        const batchSize = 10;
-        let currentBatch = 0;
-
-        const loadBatch = () => {
-            const startStr = currentBatch * batchSize + 1;
-            const endStr = Math.min((currentBatch + 1) * batchSize, frameCount);
-            
-            if (startStr > frameCount) return; // Done
-
-            let batchLoaded = 0;
-            const targetBatch = endStr - startStr + 1;
-
-            for (let i = startStr; i <= endStr; i++) {
-                const img = new Image();
-                // Set decoding to async to prevent main thread blocking while decoding images
-                img.decoding = 'async';
-                img.src = currentFrame(i);
+        for (let i = 1; i <= frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            img.onload = () => {
+                loadedImages++;
                 
-                img.onload = () => {
-                    loadedImages++;
-                    batchLoaded++;
-                    images[i - 1] = img; // Ensure correct order
+                // Update Preloader UI
+                const progress = Math.floor((loadedImages / frameCount) * 100);
+                if (progressBar) progressBar.style.width = `${progress}%`;
+                if (progressText) progressText.innerText = `${progress}%`;
 
-                    // Update Preloader UI
-                    const progress = Math.floor((loadedImages / frameCount) * 100);
-                    if (progressBar) progressBar.style.width = `${progress}%`;
-                    if (progressText) progressText.innerText = `${progress}%`;
+                // Initial render preview
+                if (i === 1) render();
 
-                    // Initial render preview as soon as frame 1 is ready
-                    if (i === 1) render();
-
-                    // Hide preloader when completely done
-                    if (loadedImages === frameCount) {
-                        if (preloader) {
-                            setTimeout(() => {
-                                preloader.classList.add('hidden');
-                            }, 500);
-                        }
+                // Hide preloader when all frames are ready
+                if (loadedImages === frameCount) {
+                    if (preloader) {
+                        setTimeout(() => {
+                            preloader.classList.add('hidden');
+                        }, 500); // Small delay so the user clearly sees 100%
                     }
-
-                    // If batch is done, load next
-                    if (batchLoaded === targetBatch) {
-                        currentBatch++;
-                        // Small delay to let browser breathe
-                        requestAnimationFrame(loadBatch);
-                    }
-                };
-                
-                img.onerror = () => {
-                   // Graceful degradation, skip failed frames so we don't hang
-                   loadedImages++; 
-                   batchLoaded++;
-                   if (batchLoaded === targetBatch) {
-                       currentBatch++;
-                       requestAnimationFrame(loadBatch);
-                   }
-                };
-            }
-        };
-
-        // Start loading process
-        loadBatch();
+                }
+            };
+            images.push(img);
+        }
 
         function render() {
             const currentImg = images[sequenceObj.frame];
@@ -526,43 +486,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ==================================
-       CROSS-PAGE TRANSITION LOGIC
-       ================================== */
-    // Create and inject the transition overlay element into the DOM
-    const transitionOverlay = document.createElement('div');
-    transitionOverlay.className = 'page-transition-overlay';
-    // Add the glowing medical cross inside the overlay
-    transitionOverlay.innerHTML = `
-        <div class="loader-content">
-            <div class="medical-cross">
-                <div class="cross-v"></div>
-                <div class="cross-h"></div>
-            </div>
-        </div>`;
-    document.body.appendChild(transitionOverlay);
-
-    // Intercept clicks on links that point to internal pages (e.g. .html)
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const tempHref = link.getAttribute('href');
-            
-            // Allow default behavior for external links, anchors, or new tabs
-            if (!tempHref || 
-                tempHref.startsWith('http') || 
-                tempHref.startsWith('#') || 
-                link.getAttribute('target') === '_blank') return;
-
-            e.preventDefault();
-            const href = link.href;
-
-            // Trigger the outbound CSS animation
-            document.body.classList.add('page-is-transitioning');
-
-            // Wait for the CSS transition to finish (0.4s defined in CSS) before navigating
-            setTimeout(() => {
-                window.location.href = href;
-            }, 400); 
-        });
-    });
 });
