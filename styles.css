@@ -440,15 +440,14 @@ canvas#sequence-canvas {
     border-radius: 20px;
     min-width: 320px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    opacity: 0.6;
-    transform: scale(0.9);
+    opacity: 1;
+    transform: scale(1);
     transition: all 0.4s ease;
     scroll-snap-align: center;
 }
 
-.review-card.active-review {
-    opacity: 1;
-    transform: scale(1);
+.review-card:hover {
+    transform: scale(1.05);
     box-shadow: 
         0 20px 50px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -555,8 +554,7 @@ canvas#sequence-canvas {
     scroll-snap-align: center;
 }
 
-.product-card:hover,
-.product-card.active-product {
+.product-card:hover {
     background: rgba(60, 60, 60, 0.4);
     transform: translateY(-10px);
     box-shadow: 
