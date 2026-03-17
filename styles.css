@@ -51,21 +51,34 @@ canvas#sequence-canvas {
 /* 2. Navigation */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 5%;
+    top: 1rem;
+    left: 5%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    border-radius: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    transition: background 0.3s ease, backdrop-filter 0.3s;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 1350px) {
+    .navbar {
+        left: calc(50% - 600px);
+    }
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .navbar .logo {
@@ -179,10 +192,12 @@ canvas#sequence-canvas {
 .content-wrapper {
     position: relative;
     z-index: 10;
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, #FFFFFF 100%);
-    backdrop-filter: blur(20px);
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
     padding: 6rem 0;
 }
@@ -212,18 +227,21 @@ canvas#sequence-canvas {
 }
 
 .feature-card {
-    background: white;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
     padding: 2.5rem 1.5rem;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .feature-card .icon {
@@ -269,13 +287,16 @@ canvas#sequence-canvas {
     letter-spacing: 1px;
 }
 
-/* Reviews */
 .reviews-section {
     padding: 6rem 5%;
-    background: rgba(219, 234, 254, 0.3);
-    border-radius: 40px;
+    background: rgba(219, 234, 254, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 50px;
     margin: 0 2%;
     margin-bottom: 6rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 .reviews-carousel {
@@ -333,11 +354,14 @@ canvas#sequence-canvas {
 }
 
 .review-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 2rem;
     border-radius: 20px;
     min-width: 320px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
     opacity: 0.6;
     transform: scale(0.9);
     transition: all 0.4s ease;
@@ -347,7 +371,8 @@ canvas#sequence-canvas {
 .review-card.active-review {
     opacity: 1;
     transform: scale(1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .reviewer {
@@ -431,21 +456,24 @@ canvas#sequence-canvas {
 }
 
 .product-card {
-    background: rgba(241, 245, 249, 0.5);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 30px;
     padding: 2rem;
     min-width: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
     scroll-snap-align: center;
 }
 
 .product-card:hover,
 .product-card.active-product {
-    background: white;
+    background: rgba(255, 255, 255, 0.4);
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.12);
 }
 
 .product-image img {
