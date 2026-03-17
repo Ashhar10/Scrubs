@@ -120,11 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollY = window.scrollY;
         const maxHeroScroll = heroSpacerEl ? heroSpacerEl.offsetHeight - window.innerHeight : 0;
         
-        if (scrollY < 50) {
-            // Initial complete header
-            navbar.classList.remove('hidden', 'scrolled');
-        } else if (scrollY >= 50 && scrollY < maxHeroScroll - 20) {
-            // Hide during the scroll sequence
+        if (scrollY < maxHeroScroll - 20) {
+            // Hide at the top and during the scroll sequence
             navbar.classList.add('hidden');
             navbar.classList.remove('scrolled');
         } else {

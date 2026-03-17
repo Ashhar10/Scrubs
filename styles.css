@@ -64,6 +64,8 @@ canvas#sequence-canvas {
     border: none;
     box-shadow: none;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 .navbar.hidden {
@@ -157,9 +159,9 @@ canvas#sequence-canvas {
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    color: var(--primary-navy);
+    color: #FFFFFF;
     letter-spacing: 2px;
-    filter: drop-shadow(0px 4px 20px rgba(255,255,255,0.95));
+    filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.6));
     transition: letter-spacing 0.8s ease;
     cursor: default;
 }
@@ -171,7 +173,7 @@ canvas#sequence-canvas {
 .hero-content h1 .italic-text {
     font-style: italic;
     font-size: 3.5rem;
-    color: var(--text-muted);
+    color: #E2E8F0;
     letter-spacing: 0;
 }
 
@@ -179,7 +181,7 @@ canvas#sequence-canvas {
     font-weight: 600;
     font-size: 5.5rem;
     letter-spacing: 6px;
-    background: linear-gradient(135deg, var(--primary-navy) 0%, #3B82F6 50%, var(--primary-navy) 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #93C5FD 50%, #FFFFFF 100%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -194,20 +196,20 @@ canvas#sequence-canvas {
 .hero-content p {
     font-family: var(--font-body);
     font-size: 1.05rem;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--primary-navy);
+    color: #FFFFFF;
     margin-bottom: 2.5rem;
     
-    /* Elegant Glass Pill */
-    background: rgba(255, 255, 255, 0.6);
+    /* Elegant Glass Pill - Darker for contrast */
+    background: rgba(15, 23, 42, 0.4);
     padding: 0.8rem 2.5rem;
     border-radius: 50px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content button {
