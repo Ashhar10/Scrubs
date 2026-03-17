@@ -114,11 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
        3. NAVBAR SCROLL EFFECT
     ================================== */
     const navbar = document.getElementById('navbar');
+    const heroSpacerEl = document.getElementById('hero-spacer');
+    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
+        const scrollY = window.scrollY;
+        const maxHeroScroll = heroSpacerEl ? heroSpacerEl.offsetHeight - window.innerHeight : 0;
+        
+        if (scrollY < 50) {
+            // Initial complete header
+            navbar.classList.remove('hidden', 'scrolled');
+        } else if (scrollY >= 50 && scrollY < maxHeroScroll - 20) {
+            // Hide during the scroll sequence
+            navbar.classList.add('hidden');
             navbar.classList.remove('scrolled');
+        } else {
+            // Show as glass pill after sequence
+            navbar.classList.remove('hidden');
+            navbar.classList.add('scrolled');
         }
     }, { passive: true });
 
