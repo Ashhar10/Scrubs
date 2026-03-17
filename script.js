@@ -44,6 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = tCtx.getImageData(0, 0, 1, 1).data;
             context.fillStyle = `rgb(${data[0]}, ${data[1]}, ${data[2]})`;
             context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Extract center pixel for dynamic scrub color
+            tCtx.clearRect(0, 0, 1, 1);
+            // Sample a nice spot relative to the model's chest/scrub area
+            tCtx.drawImage(currentImg, currentImg.width / 2, currentImg.height * 0.4, 1, 1, 0, 0, 1, 1);
+            const scrubData = tCtx.getImageData(0, 0, 1, 1).data;
+            document.documentElement.style.setProperty('--dynamic-scrub', `rgb(${scrubData[0]}, ${scrubData[1]}, ${scrubData[2]})`);
+
+            // Calculate background brightness for alternating contrast
+            const brightness = Math.round(((parseInt(data[0]) * 299) + (parseInt(data[1]) * 587) + (parseInt(data[2]) * 114)) / 1000);
+            const contrastColor = (brightness > 125) ? '#0F172A' : '#FFFFFF';
+            document.documentElement.style.setProperty('--dynamic-contrast', contrastColor);
 
             const canvasRatio = canvas.width / canvas.height;
             const imgRatio = currentImg.width / currentImg.height;

@@ -159,10 +159,10 @@ canvas#sequence-canvas {
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    color: #FFFFFF;
+    color: var(--dynamic-contrast, #FFFFFF);
     letter-spacing: 2px;
-    filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.6));
-    transition: letter-spacing 0.8s ease;
+    filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.5));
+    transition: letter-spacing 0.8s ease, color 0.1s linear;
     cursor: default;
 }
 
@@ -173,15 +173,16 @@ canvas#sequence-canvas {
 .hero-content h1 .italic-text {
     font-style: italic;
     font-size: 3.5rem;
-    color: #E2E8F0;
+    color: var(--dynamic-scrub, #E2E8F0);
     letter-spacing: 0;
+    filter: drop-shadow(0px 2px 10px rgba(255,255,255,0.4));
 }
 
 .hero-content h1 .brand-text {
     font-weight: 600;
     font-size: 5.5rem;
     letter-spacing: 6px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #93C5FD 50%, #FFFFFF 100%);
+    background: linear-gradient(135deg, var(--dynamic-contrast, #FFFFFF) 0%, var(--dynamic-scrub, #93C5FD) 50%, var(--dynamic-contrast, #FFFFFF) 100%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -199,17 +200,18 @@ canvas#sequence-canvas {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #FFFFFF;
+    color: var(--dynamic-contrast, #FFFFFF);
     margin-bottom: 2.5rem;
     
-    /* Elegant Glass Pill - Darker for contrast */
-    background: rgba(15, 23, 42, 0.4);
+    /* Elegant Glass Pill - dynamic to contrast with text */
+    background: rgba(15, 23, 42, 0.2);
     padding: 0.8rem 2.5rem;
     border-radius: 50px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: color 0.1s linear;
 }
 
 .hero-content button {
