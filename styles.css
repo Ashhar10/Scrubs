@@ -1,12 +1,12 @@
 :root {
-    --primary-navy: #0F172A;
-    --navy-light: #1E293B;
-    --brand-blue: #2563EB;
-    --brand-light: #DBEAFE;
-    --text-main: #334155;
-    --text-muted: #64748B;
-    --bg-color: #F8FAFC;
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --primary-navy: #1C1C1C; /* Dark background from logo */
+    --navy-light: #2A2A2A;   /* Slightly lighter dark background */
+    --brand-blue: #9E1B22;   /* Medical Red from the logo */
+    --brand-light: #F8D7DA;  /* Light red for subtle backgrounds */
+    --text-main: #E0E0E0;    /* Light grey for readability on dark */
+    --text-muted: #848484;   /* PRO text grey from logo */
+    --bg-color: #121212;     /* Very dark base */
+    --card-bg: rgba(42, 42, 42, 0.9);
     --font-heading: 'Outfit', sans-serif;
     --font-hero: 'NCL Gasdrifo', serif;
     --font-body: 'Inter', sans-serif;
@@ -97,10 +97,14 @@ canvas#sequence-canvas {
 }
 
 .navbar .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-navy);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    height: 45px; /* Adjust as needed for the navbar */
+    width: auto;
 }
 
 .nav-links a {
@@ -1096,7 +1100,8 @@ canvas#sequence-canvas {
     
     /* Responsive Hero Text */
     .hero-content {
-        top: 25vh;
+        top: auto;
+        bottom: 8vh;
         width: 100%;
         padding: 0 1rem;
     }
@@ -1149,6 +1154,18 @@ canvas#sequence-canvas {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+}
+
+.preloader-logo {
+    height: 80px; /* Larger size for the preloader */
+    width: auto;
+    margin-bottom: 2rem;
+    animation: fadeInOut 2s infinite ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; transform: scale(0.98); }
+    50% { opacity: 1; transform: scale(1.02); filter: drop-shadow(0 0 10px rgba(158, 27, 34, 0.4)); }
 }
 
 /* Medical Cross Animation */
