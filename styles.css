@@ -8,7 +8,7 @@
     --bg-color: #F8FAFC;
     --card-bg: rgba(255, 255, 255, 0.9);
     --font-heading: 'Outfit', sans-serif;
-    --font-hero: 'Syne', sans-serif;
+    --font-hero: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
 }
 
@@ -153,54 +153,61 @@ canvas#sequence-canvas {
 
 .hero-content h1 {
     font-family: var(--font-hero);
-    font-size: 5.5rem;
-    font-weight: 800;
-    line-height: 1.1;
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    
-    /* Animated Gradient */
-    background: linear-gradient(to right, var(--primary-navy) 20%, #2563EB 50%, var(--primary-navy) 80%);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shineText 5s linear infinite;
-    
-    /* Visibility shadow */
-    filter: drop-shadow(0px 8px 16px rgba(255,255,255,0.7));
-    
-    /* Interactivity */
-    transition: letter-spacing 0.5s ease, transform 0.5s ease;
+    color: var(--primary-navy);
+    letter-spacing: 2px;
+    filter: drop-shadow(0px 4px 20px rgba(255,255,255,0.95));
+    transition: letter-spacing 0.8s ease;
     cursor: default;
 }
 
 .hero-content h1:hover {
-    letter-spacing: 2px;
-    transform: scale(1.03);
+    letter-spacing: 4px;
+}
+
+.hero-content h1 .italic-text {
+    font-style: italic;
+    font-size: 3.5rem;
+    color: var(--text-muted);
+    letter-spacing: 0;
+}
+
+.hero-content h1 .brand-text {
+    font-weight: 600;
+    font-size: 5.5rem;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, #3B82F6 50%, var(--primary-navy) 100%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shineText 8s linear infinite;
 }
 
 @keyframes shineText {
-    to {
-        background-position: 200% center;
-    }
+    to { background-position: 200% center; }
 }
 
 .hero-content p {
-    font-size: 1.15rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--primary-navy);
-    font-weight: 600;
     margin-bottom: 2.5rem;
     
-    /* Glass Pill for visibility */
-    background: rgba(255, 255, 255, 0.4);
-    padding: 1rem 2.5rem;
+    /* Elegant Glass Pill */
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.8rem 2.5rem;
     border-radius: 50px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .hero-content button {
