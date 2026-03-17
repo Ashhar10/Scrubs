@@ -63,15 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
             let offsetX = 0, offsetY = 0;
 
             if (canvasRatio > imgRatio) {
-                // Screen is wider than image: fill width, crop height
-                drawWidth = canvas.width;
-                drawHeight = drawWidth / imgRatio;
-                offsetY = (canvas.height - drawHeight) / 2;
-            } else {
-                // Screen is taller than image: fill height, crop width
+                // Screen is wider than image: fix height, center width
                 drawHeight = canvas.height;
                 drawWidth = drawHeight * imgRatio;
                 offsetX = (canvas.width - drawWidth) / 2;
+            } else {
+                // Screen is taller than image: fix width, center height
+                drawWidth = canvas.width;
+                drawHeight = drawWidth / imgRatio;
+                offsetY = (canvas.height - drawHeight) / 2;
             }
             context.drawImage(currentImg, offsetX, offsetY, drawWidth, drawHeight);
         }
