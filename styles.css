@@ -569,7 +569,7 @@ canvas#sequence-canvas {
     color: white;
 }
 
-/* Newsletter */
+/* Newsletter - Medical Luxe Theme */
 .newsletter-section {
     position: relative;
     overflow: hidden;
@@ -579,7 +579,7 @@ canvas#sequence-canvas {
     margin-bottom: 6rem;
     margin-left: 2%;
     margin-right: 2%;
-    background: var(--primary-navy);
+    background: #0F172A; /* Deep slate base */
     border-radius: 40px;
     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
 }
@@ -591,7 +591,8 @@ canvas#sequence-canvas {
     width: 200%;
     height: 200%;
     z-index: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2) 0%, rgba(15, 23, 42, 0) 60%);
+    /* Clean, clinical, luxury glow: Deep cyan/surgical green into slate */
+    background: radial-gradient(circle at center, rgba(13, 148, 136, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
     animation: rotateGradient 20s linear infinite;
     pointer-events: none;
 }
@@ -608,22 +609,22 @@ canvas#sequence-canvas {
 
 .newsletter-content h2 {
     font-family: var(--font-hero);
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 400;
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .newsletter-content p {
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+    font-size: 1.15rem;
     color: #94A3B8;
-    max-width: 500px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .newsletter-form {
@@ -642,8 +643,8 @@ canvas#sequence-canvas {
 
 .newsletter-form:focus-within {
     background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+    border-color: rgba(13, 148, 136, 0.4);
+    box-shadow: 0 15px 40px rgba(13, 148, 136, 0.2);
 }
 
 .newsletter-form input {
@@ -652,31 +653,31 @@ canvas#sequence-canvas {
     outline: none;
     padding: 0 1.5rem;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.05rem;
     background: transparent;
     color: white;
 }
 
 .newsletter-form input::placeholder {
-    color: #94A3B8;
+    color: #64748B;
 }
 
 .newsletter-form button {
-    background: white;
-    color: var(--primary-navy);
+    background: #0D9488; /* Medical teal/cyan */
+    color: white;
     border: none;
     border-radius: 50px;
     padding: 0.9rem 2.5rem;
     font-weight: 600;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .newsletter-form button:hover {
-    background: #3B82F6;
-    color: white;
+    background: #0F766E;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 5px 20px rgba(13, 148, 136, 0.4);
 }
 
 /* Footer */
@@ -1092,14 +1093,39 @@ canvas#sequence-canvas {
         width: 100%;
         right: -100%;
     }
+    
+    /* Responsive Hero Text */
+    .hero-content {
+        top: 25vh;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: 0px;
+    }
+    .hero-content h1 .italic-text {
+        font-size: 2.2rem;
+    }
+    .hero-content h1 .brand-text {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    .hero-content p {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.5rem;
+    }
+    .hero-content button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* =============================================
    SMALL MOBILE (≤ 480px)
    ============================================= */
 @media (max-width: 480px) {
-    .hero-content h1 { font-size: 2rem !important; }
-
     .features-grid {
         grid-template-columns: 1fr;
     }
@@ -1111,6 +1137,30 @@ canvas#sequence-canvas {
     .stats-row { flex-direction: column; }
 
     .navbar .logo { font-size: 1.25rem; }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        letter-spacing: 0px;
+    }
+    
+    .hero-content h1 .italic-text {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h1 .brand-text {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        line-height: 1.3;
+        display: block;   
+    }
+
+    .hero-content p {
+        font-size: 0.75rem;
+        padding: 0.6rem 1.2rem;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        white-space: normal;
+    }
 }
 
 /* Shopping Cart Styles */

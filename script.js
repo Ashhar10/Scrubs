@@ -59,20 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const canvasRatio = canvas.width / canvas.height;
             const imgRatio = currentImg.width / currentImg.height;
-            let drawWidth, drawHeight;
-            let offsetX = 0, offsetY = 0;
+            
+            // Core Logic: Always fix the image height to the screen height.
+            // On wide desktops: This ensures head/feet aren't cropped, with edge-pixels filling the sides.
+            // On tall phones: This perfectly scales the person to fill the phone height, elegantly cropping the empty horizontal space.
+            let drawHeight = canvas.height;
+            let drawWidth = drawHeight * imgRatio;
+            let offsetX = (canvas.width - drawWidth) / 2;
+            let offsetY = 0;
 
-            if (canvasRatio > imgRatio) {
-                // Screen is wider than image: fix height, center width
-                drawHeight = canvas.height;
-                drawWidth = drawHeight * imgRatio;
-                offsetX = (canvas.width - drawWidth) / 2;
-            } else {
-                // Screen is taller than image: fix width, center height
-                drawWidth = canvas.width;
-                drawHeight = drawWidth / imgRatio;
-                offsetY = (canvas.height - drawHeight) / 2;
-            }
             context.drawImage(currentImg, offsetX, offsetY, drawWidth, drawHeight);
         }
 
