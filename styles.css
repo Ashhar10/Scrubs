@@ -140,6 +140,25 @@ canvas#sequence-canvas {
     color: var(--brand-blue);
 }
 
+/* ==================================
+   Animations
+================================== */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
 /* 3. Hero Spacer */
 .hero-spacer {
     /* Large height for the canvas sequence to scroll over */
