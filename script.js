@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('sequence-canvas');
     if (canvas) {
         const context = canvas.getContext('2d');
-        const frameCount = 121;
+        const frameCount = 130;
         const currentFrame = index => `public/scroll/${String(index).padStart(3, '0')}.png`;
 
         const images = [];
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function render() {
             const currentImg = images[sequenceObj.frame];
             if (!currentImg || !currentImg.complete) return;
-            
+
             // Extract top-left pixel color for letterboxing
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = 1; tempCanvas.height = 1;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = tCtx.getImageData(0, 0, 1, 1).data;
             context.fillStyle = `rgb(${data[0]}, ${data[1]}, ${data[2]})`;
             context.fillRect(0, 0, canvas.width, canvas.height);
-            
+
             const canvasRatio = canvas.width / canvas.height;
             const imgRatio = currentImg.width / currentImg.height;
             let drawWidth, drawHeight;
