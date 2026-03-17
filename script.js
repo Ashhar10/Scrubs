@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('sequence-canvas');
     if (canvas) {
         const context = canvas.getContext('2d');
-        const frameCount = 130;
+        const frameCount = 127;
         const currentFrame = index => `public/scroll/${String(index).padStart(3, '0')}.png`;
 
         const images = [];
