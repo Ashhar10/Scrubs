@@ -304,21 +304,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // --- Auto Scroll Logic ---
+        // --- Infinite Looping & Auto Scroll Logic ---
         let autoScrollInterval;
         let isHovered = false;
+
+        // Clone children for infinite effect
+        const cards = Array.from(track.children);
+        if (cards.length > 0) {
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                track.appendChild(clone);
+            });
+        }
+
+        const handleInfiniteScroll = () => {
+            if (track.scrollLeft === 0) {
+                // If hit start, jump to middle
+                track.style.scrollBehavior = 'auto'; // Disable smooth
+                track.scrollLeft = track.scrollWidth / 2;
+                track.style.scrollBehavior = 'smooth'; // Re-enable
+            } else if (track.scrollLeft >= track.scrollWidth / 2) {
+                // If hit end of original set, jump to start
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = 0;
+                track.style.scrollBehavior = 'smooth';
+            }
+        };
 
         const startAutoScroll = () => {
             if (autoScrollInterval) clearInterval(autoScrollInterval);
             autoScrollInterval = setInterval(() => {
                 if (!isHovered && !isDown) {
-                    // Check if at the end, if so, scroll to start smoothly
-                    const maxScroll = track.scrollWidth - track.clientWidth;
-                    if (track.scrollLeft >= maxScroll - 5) {
-                        track.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-                    }
+                    track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
                 }
             }, 3000); // Scroll every 3 seconds
         };
@@ -327,13 +344,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (autoScrollInterval) clearInterval(autoScrollInterval);
         };
 
+        track.addEventListener('scroll', handleInfiniteScroll);
+
         carousel.addEventListener('mouseenter', () => {
             isHovered = true;
             stopAutoScroll();
+            track.style.scrollBehavior = 'auto'; // Instant stop
         });
         
         carousel.addEventListener('mouseleave', () => {
             isHovered = false;
+            track.style.scrollBehavior = 'smooth';
             startAutoScroll();
         });
 

@@ -608,9 +608,15 @@ canvas#sequence-canvas {
     margin-bottom: 6rem;
     margin-left: 2%;
     margin-right: 2%;
-    background: #0F172A; /* Deep slate base */
+    background: rgba(30, 30, 30, 0.4); /* Dark glossy grey */
     border-radius: 40px;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .liquid-bg {
@@ -620,8 +626,8 @@ canvas#sequence-canvas {
     width: 200%;
     height: 200%;
     z-index: 0;
-    /* Clean, clinical, luxury glow: Deep cyan/surgical green into slate */
-    background: radial-gradient(circle at center, rgba(13, 148, 136, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+    /* Clean, clinical, luxury glow: Red into transparent */
+    background: radial-gradient(circle at center, rgba(158, 27, 34, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
     animation: rotateGradient 20s linear infinite;
     pointer-events: none;
 }
@@ -697,7 +703,7 @@ canvas#sequence-canvas {
 }
 
 .newsletter-form button {
-    background: #0D9488; /* Medical teal/cyan */
+    background: #9E1B22; /* Pro Scrubs Red */
     color: white;
     border: none;
     border-radius: 50px;
@@ -709,9 +715,9 @@ canvas#sequence-canvas {
 }
 
 .newsletter-form button:hover {
-    background: #0F766E;
+    background: #7A0B10;
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(13, 148, 136, 0.4);
+    box-shadow: 0 5px 20px rgba(158, 27, 34, 0.4);
 }
 
 /* Footer */
