@@ -105,7 +105,7 @@ canvas#sequence-canvas {
 /* 3. Hero Spacer */
 .hero-spacer {
     /* Large height for the canvas sequence to scroll over */
-    height: 250vh;
+    height: 400vh;
     position: relative;
     z-index: 2;
 }

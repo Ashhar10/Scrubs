@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('sequence-canvas');
     if (canvas) {
         const context = canvas.getContext('2d');
-        const frameCount = 80;
+        const frameCount = 121;
         const currentFrame = index => `public/scroll/${String(index).padStart(3, '0')}.png`;
 
         const images = [];
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             if (!heroSpacer) return;
             const scrollTop = window.scrollY;
-            const maxScrollTop = heroSpacer.offsetHeight;
+            const maxScrollTop = heroSpacer.offsetHeight - window.innerHeight;
             const scrollFraction = maxScrollTop > 0 ? Math.min(1, Math.max(0, scrollTop / maxScrollTop)) : 0;
             targetFrame = Math.min(frameCount - 1, Math.floor(scrollFraction * frameCount));
         }, { passive: true });
