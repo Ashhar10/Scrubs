@@ -35,20 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
         function render() {
             const currentImg = images[sequenceObj.frame];
             if (!currentImg || !currentImg.complete) return;
-            context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Extract top-left pixel color for letterboxing
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = 1; tempCanvas.height = 1;
+            const tCtx = tempCanvas.getContext('2d');
+            tCtx.drawImage(currentImg, 0, 0, 1, 1, 0, 0, 1, 1);
+            const data = tCtx.getImageData(0, 0, 1, 1).data;
+            context.fillStyle = `rgb(${data[0]}, ${data[1]}, ${data[2]})`;
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
             const canvasRatio = canvas.width / canvas.height;
             const imgRatio = currentImg.width / currentImg.height;
             let drawWidth, drawHeight;
             let offsetX = 0, offsetY = 0;
 
             if (canvasRatio > imgRatio) {
-                drawWidth = canvas.width;
-                drawHeight = drawWidth / imgRatio;
-                offsetY = (canvas.height - drawHeight) / 2;
-            } else {
                 drawHeight = canvas.height;
                 drawWidth = drawHeight * imgRatio;
                 offsetX = (canvas.width - drawWidth) / 2;
+            } else {
+                drawWidth = canvas.width;
+                drawHeight = drawWidth / imgRatio;
+                offsetY = (canvas.height - drawHeight) / 2;
             }
             context.drawImage(currentImg, offsetX, offsetY, drawWidth, drawHeight);
         }
