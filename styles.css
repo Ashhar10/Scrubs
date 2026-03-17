@@ -1515,3 +1515,29 @@ canvas#sequence-canvas {
     background: var(--primary-color);
     color: white;
 }
+
+/* ==================================
+   Global Page Fade Transition
+================================== */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #080808; 
+    z-index: 9998; /* Below preloader (9999) */
+    pointer-events: none;
+    opacity: 1; /* Start black */
+    transition: opacity 0.6s ease;
+}
+
+body.page-loaded::after {
+    opacity: 0;
+}
+
+body.page-exit::after {
+    opacity: 1;
+    pointer-events: all;
+}

@@ -1,6 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==================================
+       0. PAGE TRANSITION FADE
+    ================================== */
+    setTimeout(() => {
+        document.body.classList.add('page-loaded');
+    }, 50);
+
+    // Provide back/forward cache support so the page doesn't get stuck black
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.body.classList.remove('page-exit');
+            document.body.classList.add('page-loaded');
+        }
+    });
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = link.getAttribute('href');
+            
+            // Ignore anchors, external links, JS links, empty links
+            if (!target || target.startsWith('#') || link.target === '_blank' || target.startsWith('http') || target.startsWith('mailto:')) {
+                return;
+            }
+
+            // Don't intercept if navigating to the exact same page
+            if (link.href === window.location.href) return;
+
+            e.preventDefault();
+            document.body.classList.remove('page-loaded');
+            document.body.classList.add('page-exit');
+            
+            setTimeout(() => {
+                window.location.href = link.href; // Use fully resolved URL
+            }, 600); // Wait for CSS fade transition
+        });
+    });
+
+    /* ==================================
        1. SCROLL CANVAS SEQUENCE
     ================================== */
     const canvas = document.getElementById('sequence-canvas');
