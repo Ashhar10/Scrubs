@@ -22,12 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeCanvas();
 
         let loadedImages = 0;
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
             img.src = currentFrame(i);
             img.onload = () => {
                 loadedImages++;
+                
+                // Update Preloader UI
+                const progress = Math.floor((loadedImages / frameCount) * 100);
+                if (progressBar) progressBar.style.width = `${progress}%`;
+                if (progressText) progressText.innerText = `${progress}%`;
+
+                // Initial render preview
                 if (i === 1) render();
+
+                // Hide preloader when all frames are ready
+                if (loadedImages === frameCount) {
+                    if (preloader) {
+                        setTimeout(() => {
+                            preloader.classList.add('hidden');
+                        }, 500); // Small delay so the user clearly sees 100%
+                    }
+                }
             };
             images.push(img);
         }
